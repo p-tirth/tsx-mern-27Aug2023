@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import CharecterCard from './CharacterCard';
 import swapiRequest from '../api/SwapiRequest';
+import LoadingSVG from '../assets/loading.svg';
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
@@ -9,25 +10,27 @@ const CharacterList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setCharacters(swapiRequest('https://swapi.dev/api/people/'))
-    // axios.get('https://swapi.dev/api/people/')
-    // .then(response => {
-    //       const data = response.data.results
-    //       setCharacters(data);
-    //       console.log(data)
-    //       console.log(characters)
-    //     setLoading(false);
-    //   })
-    //   .catch(error => {
-    //     setError(error);
-    //     setLoading(false);
-    //   });
+    const apiLink = 'https://swapi.dev/api/people/'; // API endpoint for characters
+    swapiRequest(apiLink)
+      .then(data => {
+        console.log(data.results)
+        setCharacters(data.results);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
   }, []);
+  if(error){
+    return <p>Error fetching data: {error.message}</p>;
+  }
   return (
-    <div>
+    <div className=''>
+      {loading&&<img src={LoadingSVG} alt="Loading , Please wait" />}
       {characters.map(character => (
         <div key={character.name}>
-          <CharecterCard character={character}/>
+          <CharecterCard className='bg-slate-300' character={character}/>
         </div>
       ))}
     </div>

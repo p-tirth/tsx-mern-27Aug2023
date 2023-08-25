@@ -1,16 +1,13 @@
+// src/api.js
 import axios from 'axios';
 
-export default async function  swapiRequest(Link) {
+const swapiRequest = async (apiLink) => {
+  try {
+    const response = await axios.get(apiLink);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
-  await axios.get(Link)
-  .then(response => {
-        const characters = response.data.results;
-        // console.log()
-        console.log(characters)
-    })
-    .catch(error => {
-      console.log("lol")
-    });
-
-  return characters
-}
+export default swapiRequest;

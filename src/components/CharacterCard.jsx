@@ -1,9 +1,11 @@
 import React from 'react'
 
 export default function CharectarCard({character}) {
+  console.log(character)
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white hover:bg-gray-100 transition duration-300">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition duration-300">
       <div className="px-6 py-4">
+      <img src="https://picsum.photos/200/300.jpg" alt="IMAGE" />
         <div className="font-bold text-xl mb-2">{character.name}</div>
         <p className="text-gray-700 text-base">
           Height: {character.height} | Mass: {character.mass}
