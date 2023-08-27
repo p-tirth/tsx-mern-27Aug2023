@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, } from 'react';
 import logo from "../assets/starWars.png" 
+import FilterList from './FilterList';
+
 
 const Navbar = () => {
-
+  const [drop, setDrop] = useState(false);
   return (
-    <nav className="flex items-center justify-between p-4 bg-black">
+    <nav className="flex p-4 bg-black">
       {/* Logo */}
       <div className="flex items-center">
         <img
@@ -13,29 +15,39 @@ const Navbar = () => {
           className="h-20 mr-4"
         />
       </div>
-      <div>
+      <div className='flex w-full justify-center items-center'>
   
         {/* Filter Options */}
         <div>
             <span className="rounded-md shadow-sm">
-                <button type="button" className="inline-flex justify-center w-fit rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" id="dropdown-menu" aria-haspopup="true" aria-expanded="true">
-                    Select options
-                    <svg className="-mr-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"/>
-                    </svg>
+                <button 
+                type="button" 
+                className="flex w-fit justify-center items-center px-4 py-2 border rounded-l-md bg-yellow-300" id="dropdown-menu"
+                onClick={()=>{setDrop(!drop)}}
+                >
+                  Filter
+                      <svg className="-mr-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"/>
+                      </svg>
                 </button>
             </span>
+            {drop && <div className="absolute">
+            <FilterList/>
+            </div>}
         </div>
-        div
+        
         {/* Search Input */}
-        <div className="flex items-center">
+        <div className="w-1/2">
           <input
             type="text"
             placeholder="Search characters..."
-            className="px-4 py-2 mr-4 border rounded-md"
+            className="px-4 py-2 mr-4 border  w-full"
           />
         </div>
-  
+        {/* Search Button */}
+        <div>
+          <button className='px-4 py-2 mr-4 border rounded-r-md bg-yellow-300'>Search!</button>
+        </div>
       </div>
     </nav>
   );
