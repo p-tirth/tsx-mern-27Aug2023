@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function CharectarCard({character}) {
-  console.log(character)
+
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gray-100 transition duration-300">
       <div className="px-6 py-4">

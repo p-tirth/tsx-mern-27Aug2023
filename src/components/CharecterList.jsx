@@ -13,7 +13,6 @@ const CharacterList = () => {
     const apiLink = 'https://swapi.dev/api/people/'; // API endpoint for characters
     swapiRequest(apiLink)
       .then(data => {
-        console.log(data.results)
         setCharacters(data.results);
         setLoading(false);
       })
