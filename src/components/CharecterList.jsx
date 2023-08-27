@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import CharecterCard from './CharacterCard';
 import swapiRequest from '../api/SwapiRequest';
+import ReactPaginate from 'react-paginate'
 import LoadingSVG from '../assets/loading.svg';
 
 const CharacterList = () => {
@@ -13,6 +13,7 @@ const CharacterList = () => {
     const apiLink = 'https://swapi.dev/api/people/'; // API endpoint for characters
     swapiRequest(apiLink)
       .then(data => {
+        console.log(data.count)
         setCharacters(data.results);
         setLoading(false);
       })
