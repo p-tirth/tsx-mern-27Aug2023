@@ -1,15 +1,14 @@
-import CharecterList from "./components/CharecterList"
-import Navbar from "./components/Navbar"
+import CharacterDetailCard from "./pages/CharacterDetailCard"
+import Home from "./pages/Home"
+import {Routes , Route} from "react-router-dom"
 
 export default function App() {
   return (
     <>
-      <div className="">
-        <Navbar/>
-        <div className="flex justify-center items-center">
-        <CharecterList/>
-        </div>
-      </div>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/Details' element={<CharacterDetailCard/>}/>
+    </Routes>
     </>
   )
 }

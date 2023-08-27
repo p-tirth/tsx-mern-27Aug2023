@@ -25,7 +25,7 @@ const CharacterList = () => {
     return <p>Error fetching data: {error.message}</p>;
   }
   return (
-    <div className=''>
+    <div className='flex justify-center items-center flex-col'>
       {loading&&<img src={LoadingSVG} alt="Loading , Please wait" />}
       {characters.map(character => (
         <div key={character.name}>

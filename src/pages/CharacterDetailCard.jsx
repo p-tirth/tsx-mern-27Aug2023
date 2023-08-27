@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CharacterCard = ({ character }) => {
+const CharacterDetailCard = ({ character }) => {
   return (
     <div className="max-w-md rounded overflow-hidden shadow-lg bg-white hover:bg-gray-100 transition duration-300">
       <div className="px-6 py-4">
@@ -15,4 +15,4 @@ const CharacterCard = ({ character }) => {
   );
 };
 
-export default CharacterCard;
+export default CharacterDetailCard;
