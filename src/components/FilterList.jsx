@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const FilterList = () => {
-  const [checkboxes, setCheckboxes] = useState(['vehicles', 'starships', 'species', 'planets', 'people', 'films']);
+  const [checkboxes, setCheckboxes] = useState([]);
   const checkboxOptions = ['vehicles', 'starships', 'species', 'planets', 'people', 'films'];
 
   const handleCheckboxChange = (option) => {
